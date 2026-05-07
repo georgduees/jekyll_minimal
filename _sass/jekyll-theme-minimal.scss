@@ -67,9 +67,9 @@ blockquote {
   font-style:italic;
 }
 
-/* elementary: code blocks use Roboto Mono */
+/* Use platform monospace stack to avoid extra font downloads */
 code, pre {
-  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace;
 }
 
 pre {
@@ -402,20 +402,20 @@ body.site-shell a:focus {
   border: 1px solid var(--c-border);
   border-radius: var(--r-lg);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  padding: 1rem;
+  padding: 1.35rem;
 }
 
 /* ─── Hero ──────────────────────────────────────── */
 .hero-organic-tile {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: var(--sp-2);
+  grid-template-columns: 196px 1fr;
+  gap: var(--sp-3);
   align-items: center;
-  padding: var(--sp-2);
+  padding: 0;
   border-radius: var(--r-md);
-  border: 1px solid var(--c-border);
-  background: var(--c-hero-bg);
-  margin-bottom: var(--sp-2);
+  border: 0;
+  background: transparent;
+  margin-bottom: var(--sp-3);
 }
 
 .avatar-blob-wrap {
@@ -424,17 +424,18 @@ body.site-shell a:focus {
 }
 
 .avatar-blob {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   border-radius: var(--r-md);
-  background: var(--c-navy-pale);
+  background: #eef4fc;
+  border: 1px solid var(--c-border);
   display: grid;
   place-items: center;
 }
 
 .profile-picture {
-  width: 108px;
-  height: 108px;
+  width: 160px;
+  height: 160px;
   border-radius: var(--r-sm);
   object-fit: cover;
   border: 2px solid var(--c-surface);
@@ -526,11 +527,11 @@ body.site-shell a:focus {
 .about-quick-section,
 .links-section,
 .contact-section {
-  border: 1px solid var(--c-border);
+  border: 0;
   border-radius: var(--r-md);
-  background: var(--c-surface);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-  padding: 0.95rem;
+  background: #f8f9fb;
+  box-shadow: none;
+  padding: 1.1rem;
 }
 
 .section-title {
@@ -544,8 +545,9 @@ body.site-shell a:focus {
 
 .about-quick-list {
   margin: 0;
-  padding-left: var(--sp-2);
+  padding-left: 0;
   list-style: disc;
+  list-style-position: inside;
 }
 
 .about-quick-list li {
@@ -558,6 +560,14 @@ body.site-shell a:focus {
 .links-grid {
   display: grid;
   gap: var(--sp-1);
+}
+
+.email-link-combined {
+  justify-content: center;
+}
+
+.email-display-inline {
+  display: inline;
 }
 
 .link-button {
@@ -583,22 +593,18 @@ body.site-shell a:focus {
   color: var(--c-navy);
 }
 
-.email-display {
-  margin: var(--sp-1) 0 0;
-  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.875rem;
-  color: var(--c-text);
-  border: 1px solid var(--c-border);
-  border-radius: var(--r-sm);
-  background: var(--c-skill-bg);
-  padding: 0.35rem 0.6rem;
-  display: inline-block;
-}
-
 .email-hint {
   margin-top: var(--sp-1);
   font-size: 0.84rem;
   color: var(--c-muted);
+}
+
+.blog-preview-section {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 
 /* ─── Blog preview / lists ──────────────────────── */
@@ -726,6 +732,25 @@ body.site-shell a:focus {
   color: var(--c-muted);
 }
 
+/* ─── Post tags ─────────────────────────────────── */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  margin: var(--sp-1) 0 var(--sp-2);
+}
+
+.post-tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--c-border);
+  background: var(--c-skill-bg);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  text-transform: lowercase;
+}
+
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -743,16 +768,16 @@ body.site-shell a:focus {
 }
 
 .cta-section {
-  background: var(--c-navy);
+  background: #f8f9fb;
   border-radius: var(--r-md);
-  border: 0;
+  border: 1px solid var(--c-border);
   padding: var(--sp-3);
-  color: #fff;
+  color: var(--c-text);
 }
 
 .cta-section h2,
 .cta-section p {
-  color: #fff;
+  color: var(--c-text);
 }
 
 .cta-links {
@@ -769,23 +794,23 @@ body.site-shell a:focus {
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
-  background: #fff;
-  color: var(--c-navy);
-  border: 1px solid transparent;
+  background: var(--c-navy);
+  color: #fff;
+  border: 1px solid var(--c-navy);
 }
 
 .cta-button:hover {
-  background: #e8eef7;
+  background: var(--c-navy-mid);
 }
 
 .cta-button.secondary {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255,255,255,0.55);
+  background: var(--c-surface);
+  color: var(--c-navy);
+  border-color: var(--c-border);
 }
 
 .cta-button.secondary:hover {
-  background: rgba(255,255,255,0.1);
+  background: var(--c-navy-pale);
 }
 
 /* ─── Blog/Post pages ───────────────────────────── */
@@ -819,9 +844,12 @@ body.site-shell a:focus {
 .post-hero {
   display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   margin-top: var(--sp-2);
   border-radius: var(--r-sm);
   border: 1px solid var(--c-border);
+  background: var(--c-skill-bg);
 }
 
 .post-content {
@@ -901,6 +929,16 @@ body.site-shell a:focus {
 
   .avatar-blob-wrap {
     justify-content: center;
+  }
+
+  .avatar-blob {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-picture {
+    width: 106px;
+    height: 106px;
   }
 
   .hero-actions {

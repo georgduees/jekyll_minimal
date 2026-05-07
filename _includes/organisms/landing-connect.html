@@ -4,8 +4,9 @@
     {% for link in site.data.profile.social_links %}
       {% include molecules/social-button.html url=link.url icon=link.icon label=link.label %}
     {% endfor %}
-    {% include molecules/social-button.html url="#" id="emailButton" icon="" label="Email" extra_class="email-link-button" target="_self" %}
+    <a href="#" id="emailButton" target="_self" class="link-button email-link-combined" aria-label="Email">
+      <span class="link-text" id="emailDisplay">Email</span>
+    </a>
   </div>
   <p class="email-hint">(The address appears on page load and can be copied.)</p>
-  <p class="email-display" id="emailDisplay"></p>
 </section>

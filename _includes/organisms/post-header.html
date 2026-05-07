@@ -6,7 +6,14 @@
       <span> · {{ page.author }}</span>
     {% endif %}
   </p>
+  {% if page.tags and page.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in page.tags %}
+        <span class="post-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
   {% if page.image %}
-    <img class="post-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    <img class="post-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="eager" decoding="async">
   {% endif %}
 </header>
