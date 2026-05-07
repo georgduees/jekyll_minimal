@@ -1,0 +1,3 @@
+{% for item in site.data.navbar %}
+  {% include atoms/nav-item.html href=item.link label=item.name %}
+{% endfor %}

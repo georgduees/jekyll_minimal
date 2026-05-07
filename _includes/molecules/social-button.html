@@ -1,0 +1,4 @@
+<a href="{{ include.url }}" {% if include.id %}id="{{ include.id }}" {% endif %}target="{{ include.target | default: '_blank' }}" {% if include.target == '_blank' or include.target == nil %}rel="noopener noreferrer" {% endif %}class="link-button{% if include.extra_class %} {{ include.extra_class }}{% endif %}">
+  <span class="link-icon">{{ include.icon }}</span>
+  <span class="link-text">{{ include.label }}</span>
+</a>

@@ -1,0 +1,39 @@
+<section class="about-section">
+  <h2>{{ site.data.about.intro_title }}</h2>
+  <p>{{ site.data.about.intro_text }}</p>
+</section>
+
+<section class="about-section">
+  <h2>{{ site.data.about.what_i_do_title }}</h2>
+  <div class="expertise-grid">
+    {% for card in site.data.about.cards %}
+      <div class="expertise-card">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <h2>{{ site.data.about.skills_title }}</h2>
+  <div class="skills-list">
+    {% for skill in site.data.about.skills %}
+      <span class="skill-tag">{{ skill }}</span>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <h2>{{ site.data.about.beyond_title }}</h2>
+  <p>{{ site.data.about.beyond_text }}</p>
+</section>
+
+<section class="about-section cta-section">
+  <h2>{{ site.data.about.cta_title }}</h2>
+  <p>{{ site.data.about.cta_text }}</p>
+  <div class="cta-links">
+    <a href="/" class="cta-button">Kontakt aufnehmen</a>
+    <a href="https://www.linkedin.com/in/georgduees/" target="_blank" rel="noopener noreferrer" class="cta-button secondary">Auf LinkedIn vernetzen</a>
+  </div>
+</section>

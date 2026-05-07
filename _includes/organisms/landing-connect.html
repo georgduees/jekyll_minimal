@@ -1,0 +1,11 @@
+<section class="links-section">
+  {% include atoms/section-title.html text="Kontakt" %}
+  <div class="links-grid">
+    {% for link in site.data.profile.social_links %}
+      {% include molecules/social-button.html url=link.url icon=link.icon label=link.label %}
+    {% endfor %}
+    {% include molecules/social-button.html url="#" id="emailButton" icon="✉" label="E-Mail" extra_class="email-link-button" target="_self" %}
+  </div>
+  <p class="email-hint">(Adresse wird beim Laden eingeblendet und ist kopierbar.)</p>
+  <p class="email-display" id="emailDisplay"></p>
+</section>

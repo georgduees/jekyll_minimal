@@ -1,0 +1,42 @@
+<section class="post-share-box">
+  <button id="shareButton" class="share-button" type="button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title }}">
+    Share Artikel
+  </button>
+  <p id="shareStatus" class="share-status" aria-live="polite"></p>
+</section>
+
+<script>
+  (function () {
+    const shareButton = document.getElementById('shareButton');
+    const shareStatus = document.getElementById('shareStatus');
+
+    if (!shareButton || !shareStatus) return;
+
+    const shareData = {
+      title: shareButton.dataset.title || document.title,
+      url: shareButton.dataset.url || window.location.href
+    };
+
+    shareButton.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          shareStatus.textContent = 'Artikel geteilt.';
+          return;
+        } catch (error) {
+          if (error && error.name === 'AbortError') {
+            shareStatus.textContent = 'Teilen abgebrochen.';
+            return;
+          }
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        shareStatus.textContent = 'Link in die Zwischenablage kopiert.';
+      } catch (error) {
+        shareStatus.textContent = 'Kopieren nicht moeglich. URL manuell kopieren.';
+      }
+    });
+  })();
+</script>

@@ -1,0 +1,8 @@
+<section class="about-quick-section">
+  {% include atoms/section-title.html text="Was ich mache" %}
+  <ul class="about-quick-list">
+    {% for item in site.data.profile.what_i_do %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</section>

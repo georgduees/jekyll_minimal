@@ -1,0 +1,9 @@
+<section class="post-list">
+  {% if site.posts.size > 0 %}
+    {% for post in site.posts %}
+      {% include molecules/post-list-card.html post=post %}
+    {% endfor %}
+  {% else %}
+    <p class="blog-intro">Der erste Artikel kommt in Kuerze.</p>
+  {% endif %}
+</section>

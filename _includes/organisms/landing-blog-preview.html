@@ -1,0 +1,11 @@
+<section class="links-section">
+  {% include atoms/section-title.html text="Neu im Blog" %}
+  <div class="article-grid">
+    {% for post in site.posts limit:3 %}
+      {% include molecules/blog-teaser-card.html post=post %}
+    {% endfor %}
+  </div>
+  <p class="article-all-link-wrap">
+    <a class="article-all-link" href="/blog/">Alle Artikel ansehen</a>
+  </p>
+</section>

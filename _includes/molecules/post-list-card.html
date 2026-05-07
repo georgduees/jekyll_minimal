@@ -1,0 +1,5 @@
+<a class="post-card" href="{{ include.post.url | relative_url }}">
+  <span class="post-meta">{{ include.post.date | date: "%d.%m.%Y" }}</span>
+  <h2 class="post-title">{{ include.post.title }}</h2>
+  <p class="post-excerpt">{{ include.post.excerpt | strip_html | truncate: 170 }}</p>
+</a>

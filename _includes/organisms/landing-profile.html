@@ -1,0 +1,21 @@
+<div class="profile-container o-bento-shell">
+  <section class="hero-organic-tile">
+    <div class="avatar-blob-wrap">
+      <div class="avatar-blob">
+        <img src="/assets/me.jpeg" alt="Profile Picture" class="profile-picture">
+      </div>
+    </div>
+    <div class="hero-copy">
+      <h1 class="profile-title">{{ site.title }}</h1>
+      <p class="profile-tagline">{{ site.data.profile.tagline }}</p>
+      <p class="profile-personal-note">{{ site.data.profile.personal_note }}</p>
+    </div>
+  </section>
+
+  <div class="bento-grid-two">
+    {% include organisms/landing-what-i-do.html %}
+    {% include organisms/landing-connect.html %}
+  </div>
+
+  {% include organisms/landing-blog-preview.html %}
+</div>
